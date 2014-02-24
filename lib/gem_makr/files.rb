@@ -9,6 +9,11 @@ module Gem_Makr
         gemspec = ERB.new(File.read(File.join(File.dirname(__FILE__), '..', 'templates', 'gemspec.erb')))
         file.write(gemspec.result(binding))
       }
+
+      File.open(File.join(gem_name, 'bin', gem_name), 'w') { |file|
+        bin = ERB.new(File.read(File.join(File.dirname(__FILE__), '..', 'templates', 'bin.erb')))
+        file.write(bin.result(binding))
+      }
     rescue Exception => e
       puts "We had an issue!"
       raise e.message
