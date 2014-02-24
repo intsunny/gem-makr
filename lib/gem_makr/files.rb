@@ -39,8 +39,5 @@ module Gem_Makr
       raise e.message
     end
 
-
-    binding.pry
-
   end
 end
