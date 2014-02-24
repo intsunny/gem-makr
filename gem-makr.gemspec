@@ -13,8 +13,7 @@ Gem::Specification.new do |s|
   s.files              = Dir['bin/*',
                              'lib/*',
                              'lib/**/*']
-  s.executables        = ['gem-makr']
-  s.default_executable = 'gem-makr'
+  s.executables        = 'gem-makr'
 
   s.add_dependency 'rake'
 
