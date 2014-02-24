@@ -29,6 +29,11 @@ module Gem_Makr
         options = ERB.new(File.read(File.join(File.dirname(__FILE__), '..', 'templates', 'options.rb.erb')))
         file.write(options.result(binding))
       }
+
+      File.open(File.join(gem_name, 'lib', gem_name, 'version.rb'), 'w') { |file|
+        version = ERB.new(File.read(File.join(File.dirname(__FILE__), '..', 'templates', 'version.rb.erb')))
+        file.write(version.result(binding))
+      }
     rescue Exception => e
       puts "We had an issue!"
       raise e.message
