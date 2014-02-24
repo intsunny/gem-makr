@@ -1,0 +1,26 @@
+module <%= class_name %>
+  def self.parse_options
+
+    options = {}
+
+    optparse = OptionParser.new do |opts|
+      opts.banner = "Usage: <%= gem_name %> [options]"
+
+      opts.on('-a', '--arg ARG', 'This option requires an argument') do |arg|
+        options[:arg] = arg
+      end
+
+      opts.on('-b', '--bool', 'This argument is boolean') do
+        options[:password] = true
+      end
+
+      opts.on('-h', '--help', 'Display this screen') do
+        puts opts
+        exit
+      end
+    end
+
+    return options
+
+  end
+end
