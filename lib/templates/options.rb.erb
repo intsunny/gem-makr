@@ -3,7 +3,7 @@ require 'optparse'
 module <%= class_name %>
   def self.parse_options
 
-    options = {}
+    options = Hash.new {}
 
     optparse = OptionParser.new do |opts|
       opts.banner = "Usage: <%= gem_name %> [options]"
@@ -21,6 +21,8 @@ module <%= class_name %>
         exit
       end
     end
+
+    optparse.parse!
 
     return options
 
