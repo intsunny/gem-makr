@@ -1,5 +1,7 @@
 require 'optparse'
 
+require '<%= gem_name %>/version'
+
 module <%= class_name %>
   def self.parse_options
 
@@ -18,6 +20,13 @@ module <%= class_name %>
 
       opts.on('-h', '--help', 'Display this screen') do
         puts opts
+        exit
+      end
+
+      # The GNU coding standard only specifies --version, and is not specific
+      # about -v or -V
+      opts.on('-V', '--version', 'Display version') do
+        puts <%= class_name %>::VERSION
         exit
       end
     end
